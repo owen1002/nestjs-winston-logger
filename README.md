@@ -16,7 +16,7 @@ $ yarn
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-import { NestWinstonLoggerService } from "nestjs-winston-logger";
+import { NestjsWinstonLoggerService } from "nestjs-winston-logger";
 import { LoggingInterceptor } from "nestjs-winston-logger";
 import { format, transports } from "winston";
 
@@ -24,7 +24,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
-  const globalLogger = new NestWinstonLoggerService({
+  const globalLogger = new NestjsWinstonLoggerService({
     format: format.combine(
       format.timestamp({ format: "isoDateTime" }),
       format.json(),
