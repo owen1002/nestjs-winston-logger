@@ -1977,8 +1977,8 @@
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "9d40831b04e6254fd764113dc6bc0fbdd5fcbca686906a6c51b4a41a13514c2f",
-        "signature": "6740de7153a85a8cbd926dd212f9031ba026374a2facc93813d47889b9b1fbf9",
+        "version": "0f5a953cdf0b039f2c62949ade66b796fc05b665c04b04e200b6ef5fe4285ce0",
+        "signature": "ef19050e9578b1b9f36796b78330b30464ee4a4587e008400487b7ab6c97cc40",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
