@@ -1,6 +1,6 @@
 {
-  "name": "nest-winston-logger-demo",
-  "version": "0.1.2",
+  "name": "nestjs-winston-logger",
+  "version": "0.1.0",
   "description": "",
   "author": "Owen Siu",
   "license": "MIT",
