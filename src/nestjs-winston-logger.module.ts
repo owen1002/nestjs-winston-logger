@@ -1,7 +1,7 @@
 import { DynamicModule, Module } from "@nestjs/common";
 import { LoggerOptions } from "winston";
-import { NEST_WINSTON_CONFIG_OPTIONS } from "./nest-winston-logger.constants";
-import { NestWinstonLoggerService } from "./nest-winston-logger.service";
+import { NESTJS_WINSTON_CONFIG_OPTIONS } from "./nestjs-winston-logger.constants";
+import { NestjsWinstonLoggerService } from "./nestjs-winston-logger.service";
 
 @Module({})
 export class LoggerModule {
@@ -10,12 +10,12 @@ export class LoggerModule {
       module: LoggerModule,
       providers: [
         {
-          provide: NEST_WINSTON_CONFIG_OPTIONS,
+          provide: NESTJS_WINSTON_CONFIG_OPTIONS,
           useValue: options,
         },
-        NestWinstonLoggerService,
+        NestjsWinstonLoggerService,
       ],
-      exports: [NestWinstonLoggerService],
+      exports: [NestjsWinstonLoggerService],
     };
   }
 }

@@ -6,9 +6,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/owen1002/nest-winston-logger.git"
+    "url": "https://github.com/owen1002/nestjs-winston-logger"
   },
-  "homepage": "https://github.com/owen1002/nest-winston-logger.git",
+  "homepage": "https://github.com/owen1002/nestjs-winston-logger",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

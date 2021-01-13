@@ -1,13 +1,13 @@
 import { Inject, Injectable, Logger, Scope } from "@nestjs/common";
 import { createLogger, LoggerOptions, Logger as WinstonLogger } from "winston";
-import { NEST_WINSTON_CONFIG_OPTIONS } from "./nest-winston-logger.constants";
+import { NESTJS_WINSTON_CONFIG_OPTIONS } from "./nestjs-winston-logger.constants";
 
 @Injectable({ scope: Scope.TRANSIENT })
-export class NestWinstonLoggerService extends Logger {
+export class NestjsWinstonLoggerService extends Logger {
   private config: LoggerOptions;
   private logger: WinstonLogger;
 
-  constructor(@Inject(NEST_WINSTON_CONFIG_OPTIONS) config: LoggerOptions) {
+  constructor(@Inject(NESTJS_WINSTON_CONFIG_OPTIONS) config: LoggerOptions) {
     super();
     this.config = config;
     this.logger = createLogger(this.config);
