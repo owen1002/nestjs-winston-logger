@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoggingInterceptor = void 0;
 const common_1 = require("@nestjs/common");
 const operators_1 = require("rxjs/operators");
-const nest_winston_logger_service_1 = require("./nest-winston-logger.service");
+const nestjs_winston_logger_service_1 = require("./nestjs-winston-logger.service");
 let LoggingInterceptor = class LoggingInterceptor {
     constructor(logger) {
         this.logger = logger;
@@ -30,7 +30,7 @@ let LoggingInterceptor = class LoggingInterceptor {
 };
 LoggingInterceptor = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [nest_winston_logger_service_1.NestWinstonLoggerService])
+    __metadata("design:paramtypes", [nestjs_winston_logger_service_1.NestjsWinstonLoggerService])
 ], LoggingInterceptor);
 exports.LoggingInterceptor = LoggingInterceptor;
-//# sourceMappingURL=nest-winston-logger.interceptor.js.map
+//# sourceMappingURL=nestjs-winston-logger.interceptor.js.map

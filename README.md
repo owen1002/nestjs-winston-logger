@@ -52,13 +52,13 @@ Inside demo.module.ts
 
 ```ts
 import { Module } from "@nestjs/common";
-import { LoggerModule } from "nestjs-winston-logger";
+import { NestJsWinstonLoggerModule } from "nestjs-winston-logger";
 import { format, transports } from "winston";
 import { DemoService } from "./demo.service";
 
 @Module({
   imports: [
-    LoggerModule.forRoot({
+    NestJsWinstonLoggerModule.forRoot({
       format: format.combine(
         format.timestamp({ format: "isoDateTime" }),
         format.json(),
@@ -80,11 +80,11 @@ Inside demo.service.ts
 
 ```ts
 import { Injectable } from "@nestjs/common";
-import { NestWinstonLoggerService } from "nestjs-winston-logger";
+import { NestjsWinstonLoggerService } from "nestjs-winston-logger";
 
 @Injectable()
 export class DemoService {
-  constructor(private logger: NestWinstonLoggerService) {
+  constructor(private logger: NestjsWinstonLoggerService) {
     logger.setContext(DemoService.name);
   }
 }

@@ -12,11 +12,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NestWinstonLoggerService = void 0;
+exports.NestjsWinstonLoggerService = void 0;
 const common_1 = require("@nestjs/common");
 const winston_1 = require("winston");
-const nest_winston_logger_constants_1 = require("./nest-winston-logger.constants");
-let NestWinstonLoggerService = class NestWinstonLoggerService extends common_1.Logger {
+const nestjs_winston_logger_constants_1 = require("./nestjs-winston-logger.constants");
+let NestjsWinstonLoggerService = class NestjsWinstonLoggerService extends common_1.Logger {
     constructor(config) {
         super();
         this.config = config;
@@ -41,10 +41,10 @@ let NestWinstonLoggerService = class NestWinstonLoggerService extends common_1.L
         this.logger.verbose(message);
     }
 };
-NestWinstonLoggerService = __decorate([
+NestjsWinstonLoggerService = __decorate([
     common_1.Injectable({ scope: common_1.Scope.TRANSIENT }),
-    __param(0, common_1.Inject(nest_winston_logger_constants_1.NEST_WINSTON_CONFIG_OPTIONS)),
+    __param(0, common_1.Inject(nestjs_winston_logger_constants_1.NESTJS_WINSTON_CONFIG_OPTIONS)),
     __metadata("design:paramtypes", [Object])
-], NestWinstonLoggerService);
-exports.NestWinstonLoggerService = NestWinstonLoggerService;
-//# sourceMappingURL=nest-winston-logger.service.js.map
+], NestjsWinstonLoggerService);
+exports.NestjsWinstonLoggerService = NestjsWinstonLoggerService;
+//# sourceMappingURL=nestjs-winston-logger.service.js.map

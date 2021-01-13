@@ -1,6 +1,6 @@
 import { Logger } from "@nestjs/common";
 import { LoggerOptions } from "winston";
-export declare class NestWinstonLoggerService extends Logger {
+export declare class NestjsWinstonLoggerService extends Logger {
     private config;
     private logger;
     constructor(config: LoggerOptions);
