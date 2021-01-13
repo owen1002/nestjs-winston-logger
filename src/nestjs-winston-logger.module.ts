@@ -4,10 +4,10 @@ import { NESTJS_WINSTON_CONFIG_OPTIONS } from "./nestjs-winston-logger.constants
 import { NestjsWinstonLoggerService } from "./nestjs-winston-logger.service";
 
 @Module({})
-export class NestJsWinstonLoggerModule {
+export class NestjsWinstonLoggerModule {
   static forRoot(options: LoggerOptions): DynamicModule {
     return {
-      module: NestJsWinstonLoggerModule,
+      module: NestjsWinstonLoggerModule,
       providers: [
         {
           provide: NESTJS_WINSTON_CONFIG_OPTIONS,

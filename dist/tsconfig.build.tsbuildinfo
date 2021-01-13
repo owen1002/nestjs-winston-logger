@@ -1972,8 +1972,8 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.module.ts": {
-        "version": "079837aac3d0958eb99aa106108c7468a4dfaf5d3f5db2400acd71f2b4557c61",
-        "signature": "60baa3e0bb41e07d03f404255679078a73dce8b66a185001c7cd5bc71f066706",
+        "version": "1bcc17263be4105d2fe1e998d168552f14e3709f927d9099cc03c8222752045e",
+        "signature": "1531231907556e7122a1432a317068694fe8612c9b01c74b09eb6b5cfc397261",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {

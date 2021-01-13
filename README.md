@@ -52,13 +52,13 @@ Inside demo.module.ts
 
 ```ts
 import { Module } from "@nestjs/common";
-import { NestJsWinstonLoggerModule } from "nestjs-winston-logger";
+import { NestjsWinstonLoggerModule } from "nestjs-winston-logger";
 import { format, transports } from "winston";
 import { DemoService } from "./demo.service";
 
 @Module({
   imports: [
-    NestJsWinstonLoggerModule.forRoot({
+    NestjsWinstonLoggerModule.forRoot({
       format: format.combine(
         format.timestamp({ format: "isoDateTime" }),
         format.json(),
