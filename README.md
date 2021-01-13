@@ -10,7 +10,7 @@ $ yarn
 
 ## QuickStart
 
-# To use it globally and log any response
+### To use it globally and log any response
 
 ```ts
 import { ConfigService } from "@nestjs/config";
@@ -46,7 +46,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-# To use it inside module
+### To use it inside module
 
 Inside demo.module.ts
 
