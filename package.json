@@ -9,6 +9,8 @@
     "url": "https://github.com/owen1002/nest-winston-logger.git"
   },
   "homepage": "https://github.com/owen1002/nest-winston-logger.git",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
