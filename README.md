@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-$ yarn
+$ yarn add nestjs-winston-logger
 ```
 
 ## QuickStart

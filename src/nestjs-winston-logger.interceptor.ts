@@ -19,14 +19,14 @@ export class LoggingInterceptor implements NestInterceptor {
     return next.handle().pipe(
       tap({
         next: (v) => {
-          this.logger.log(`Response:${v}`);
+          this.logger.log(`Result: ${v}`);
         },
         /*
         If you want to append error handler
          error: (err) => {
            this.logger.error(err, "");
          },*/
-        complete: () => this.logger.log(`Finished... ${Date.now() - now}ms`),
+        complete: () => this.logger.log(`Complete time: ${Date.now() - now}ms`),
       }),
     );
   }
