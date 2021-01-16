@@ -19,8 +19,7 @@ const nestjs_winston_logger_constants_1 = require("./nestjs-winston-logger.const
 let NestjsWinstonLoggerService = class NestjsWinstonLoggerService extends common_1.Logger {
     constructor(config) {
         super();
-        this.config = config;
-        this.logger = winston_1.createLogger(this.config);
+        this.logger = winston_1.createLogger(config);
     }
     setContext(serviceName) {
         this.logger.defaultMeta = { service: serviceName };

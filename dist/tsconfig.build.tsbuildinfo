@@ -166,11 +166,6 @@
         "signature": "eab6097dbd047df76802478c3415e7ca00ee4b708f8a71d61db7209535ae649e",
         "affectsGlobalScope": false
       },
-      "../node_modules/reflect-metadata/index.d.ts": {
-        "version": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
-        "signature": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
-        "affectsGlobalScope": true
-      },
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts": {
         "version": "3346a737f29b700e7c6c2a694973ceb70a738c3ac5212ffbefac8a27048fa8d6",
         "signature": "3346a737f29b700e7c6c2a694973ceb70a738c3ac5212ffbefac8a27048fa8d6",
@@ -1962,12 +1957,12 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.service.ts": {
-        "version": "d638faf3d768c395b4f657cab9248171ae8b84e1c90ae504993266ec1a3c1151",
-        "signature": "5e14ed68e0137f791741cdabfc14c433a93b7b000080dd6fdad1e103e66df02c",
+        "version": "50ed53d03ef150e1d62e882b410afc43519de7cc4de0833ba32a9bf19b55f8af",
+        "signature": "d15b64228b942201ece4aa4a80ad68ebd936d2f219d5653862e7e6abd6056c04",
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.interceptor.ts": {
-        "version": "4dab06228a2bdcfef5f2dc9811802e9899e18c6e6073ebd1228e133417abf271",
+        "version": "97dd202de35596cb5877578feda4424c920f077861cd3b4c9ea4cad66ae6ca27",
         "signature": "778138af30ba17fae827e3e742b30415032fcae3d91527b8c8effbe5616947df",
         "affectsGlobalScope": false
       },
@@ -2535,8 +2530,7 @@
         "../node_modules/@nestjs/common/pipes/index.d.ts",
         "../node_modules/@nestjs/common/serializer/index.d.ts",
         "../node_modules/@nestjs/common/services/index.d.ts",
-        "../node_modules/@nestjs/common/utils/index.d.ts",
-        "../node_modules/reflect-metadata/index.d.ts"
+        "../node_modules/@nestjs/common/utils/index.d.ts"
       ],
       "../node_modules/@nestjs/common/interfaces/exceptions/exception-filter.interface.d.ts": [
         "../node_modules/@nestjs/common/interfaces/features/arguments-host.interface.d.ts"
@@ -4163,8 +4157,7 @@
         "../node_modules/@nestjs/common/pipes/index.d.ts",
         "../node_modules/@nestjs/common/serializer/index.d.ts",
         "../node_modules/@nestjs/common/services/index.d.ts",
-        "../node_modules/@nestjs/common/utils/index.d.ts",
-        "../node_modules/reflect-metadata/index.d.ts"
+        "../node_modules/@nestjs/common/utils/index.d.ts"
       ],
       "../node_modules/@nestjs/common/interfaces/exceptions/exception-filter.interface.d.ts": [
         "../node_modules/@nestjs/common/interfaces/features/arguments-host.interface.d.ts"

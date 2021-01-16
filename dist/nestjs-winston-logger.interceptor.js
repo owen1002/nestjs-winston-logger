@@ -22,9 +22,9 @@ let LoggingInterceptor = class LoggingInterceptor {
         const now = Date.now();
         return next.handle().pipe(operators_1.tap({
             next: (v) => {
-                this.logger.log(`Response:${v}`);
+                this.logger.log(`Result: ${v}`);
             },
-            complete: () => this.logger.log(`Finished... ${Date.now() - now}ms`),
+            complete: () => this.logger.log(`Complete time: ${Date.now() - now}ms`),
         }));
     }
 };

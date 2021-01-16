@@ -4,13 +4,11 @@ import { NESTJS_WINSTON_CONFIG_OPTIONS } from "./nestjs-winston-logger.constants
 
 @Injectable({ scope: Scope.TRANSIENT })
 export class NestjsWinstonLoggerService extends Logger {
-  private config: LoggerOptions;
   private logger: WinstonLogger;
 
   constructor(@Inject(NESTJS_WINSTON_CONFIG_OPTIONS) config: LoggerOptions) {
     super();
-    this.config = config;
-    this.logger = createLogger(this.config);
+    this.logger = createLogger(config);
   }
 
   setContext(serviceName: string) {
