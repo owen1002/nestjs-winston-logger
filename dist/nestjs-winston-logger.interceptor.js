@@ -11,7 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoggingInterceptor = void 0;
 const common_1 = require("@nestjs/common");
+const graphql_1 = require("@nestjs/graphql");
 const operators_1 = require("rxjs/operators");
+const nestjs_winston_logger_constants_1 = require("./nestjs-winston-logger.constants");
 const nestjs_winston_logger_service_1 = require("./nestjs-winston-logger.service");
 let LoggingInterceptor = class LoggingInterceptor {
     constructor(logger) {
@@ -20,6 +22,21 @@ let LoggingInterceptor = class LoggingInterceptor {
     intercept(context, next) {
         this.logger.setContext(context.getClass().name);
         const now = Date.now();
+        if (context.getType() === "http") {
+            const ctx = context.switchToHttp();
+            const request = ctx.getRequest();
+            this.logger.log(`${JSON.stringify({
+                type: nestjs_winston_logger_constants_1.LOG_TYPE.REQUEST_ARGS,
+                value: request,
+            })}`);
+        }
+        else if (context.getType() === "rpc") {
+        }
+        else if (context.getType() === "graphql") {
+            const gqlContext = graphql_1.GqlExecutionContext.create(context);
+            const args = gqlContext.getArgs();
+            this.logger.log(`${JSON.stringify({ type: nestjs_winston_logger_constants_1.LOG_TYPE.REQUEST_ARGS, value: args })}`);
+        }
         return next.handle().pipe(operators_1.tap({
             next: (v) => {
                 this.logger.log(`Result: ${v}`);

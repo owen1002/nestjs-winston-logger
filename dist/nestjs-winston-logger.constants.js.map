@@ -1,1 +1,1 @@
-{"version":3,"file":"nestjs-winston-logger.constants.js","sourceRoot":"","sources":["../src/nestjs-winston-logger.constants.ts"],"names":[],"mappings":";;;AAAa,QAAA,6BAA6B,GAAG,+BAA+B,CAAC"}
+{"version":3,"file":"nestjs-winston-logger.constants.js","sourceRoot":"","sources":["../src/nestjs-winston-logger.constants.ts"],"names":[],"mappings":";;;AAAa,QAAA,6BAA6B,GAAG,+BAA+B,CAAC;AAEhE,QAAA,QAAQ,GAAG;IACpB,YAAY,EAAE,cAAc;IAC5B,eAAe,EAAE,iBAAiB;CACnC,CAAC"}
