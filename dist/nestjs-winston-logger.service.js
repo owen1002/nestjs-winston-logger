@@ -22,7 +22,10 @@ let NestjsWinstonLoggerService = class NestjsWinstonLoggerService extends common
         this.logger = winston_1.createLogger(config);
     }
     setContext(serviceName) {
-        this.logger.defaultMeta = { service: serviceName };
+        this.logger.defaultMeta = Object.assign(Object.assign({}, this.logger.defaultMeta), { service: serviceName });
+    }
+    appendDefaultMeta(key, value) {
+        this.logger.defaultMeta = Object.assign(Object.assign({}, this.logger.defaultMeta), { [key]: value });
     }
     log(message) {
         this.logger.info(message);

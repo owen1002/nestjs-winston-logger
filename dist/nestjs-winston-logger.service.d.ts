@@ -4,6 +4,7 @@ export declare class NestjsWinstonLoggerService extends Logger {
     private logger;
     constructor(config: LoggerOptions);
     setContext(serviceName: string): void;
+    appendDefaultMeta(key: string, value: string): void;
     log(message: string): void;
     error(message: string, trace: string): void;
     warn(message: string): void;

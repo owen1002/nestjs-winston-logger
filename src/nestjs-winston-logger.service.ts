@@ -12,7 +12,17 @@ export class NestjsWinstonLoggerService extends Logger {
   }
 
   setContext(serviceName: string) {
-    this.logger.defaultMeta = { service: serviceName };
+    this.logger.defaultMeta = {
+      ...this.logger.defaultMeta,
+      service: serviceName,
+    };
+  }
+
+  appendDefaultMeta(key: string, value: string) {
+    this.logger.defaultMeta = {
+      ...this.logger.defaultMeta,
+      [key]: value,
+    };
   }
 
   log(message: string) {

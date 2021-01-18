@@ -1957,8 +1957,8 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.service.ts": {
-        "version": "50ed53d03ef150e1d62e882b410afc43519de7cc4de0833ba32a9bf19b55f8af",
-        "signature": "d15b64228b942201ece4aa4a80ad68ebd936d2f219d5653862e7e6abd6056c04",
+        "version": "05eb3c4cabcfc72e5aa9899370923aa62ebb03b9eee678dcb48800b3f88f3f48",
+        "signature": "b9a2af6638a5422f3f2a0c557fc74aff5ef539e3718fe1196ac76f78575dd0ee",
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.interceptor.ts": {
