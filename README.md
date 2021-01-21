@@ -16,12 +16,24 @@ $ yarn add nestjs-winston-logger
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-import { NestjsWinstonLoggerService } from "nestjs-winston-logger";
-import { LoggingInterceptor } from "nestjs-winston-logger";
+import {
+  NestjsWinstonLoggerService,
+  appendRequestIdToLogger,
+  LoggingInterceptor,
+} from "nestjs-winston-logger";
+import {
+  configMorgan,
+  morganRequestLogger,
+  morganResponseLogger,
+} from "nestjs-winston-logger/morgan";
+
 import { format, transports } from "winston";
+import * as helmet from "helmet";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(helmet());
+
   const configService = app.get(ConfigService);
 
   const globalLogger = new NestjsWinstonLoggerService({
@@ -37,6 +49,15 @@ async function bootstrap() {
     ],
   });
   app.useLogger(globalLogger);
+
+  // append id to identify request
+  app.use(appendIdToRequest);
+  app.use(appendRequestIdToLogger(globalLogger));
+
+  configMorgan.appendMorganToken("reqId", TOKEN_TYPE.Request, "reqId");
+  app.use(morganRequestLogger(globalLogger));
+  app.use(morganResponseLogger(globalLogger));
+
   app.useGlobalInterceptors(new LoggingInterceptor(globalLogger));
   const port = configService.get<string>("PORT");
   await app.listen(port).then(() => {
