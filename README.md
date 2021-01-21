@@ -13,7 +13,6 @@ $ yarn add nestjs-winston-logger
 ### To use it globally and log any response
 
 ```ts
-import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import {
@@ -33,8 +32,6 @@ import * as helmet from "helmet";
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(helmet());
-
-  const configService = app.get(ConfigService);
 
   const globalLogger = new NestjsWinstonLoggerService({
     format: format.combine(
@@ -59,7 +56,8 @@ async function bootstrap() {
   app.use(morganResponseLogger(globalLogger));
 
   app.useGlobalInterceptors(new LoggingInterceptor(globalLogger));
-  const port = configService.get<string>("PORT");
+
+  const port = process.env.PORT || 4000;
   await app.listen(port).then(() => {
     console.log(`🚀 Server ready at ${port}`);
   });
