@@ -4406,8 +4406,8 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.middleware.ts": {
-        "version": "e2c8540abdb6528e0d8bb608dc9f06ffdff2dbc5557cb63f8f2cb66714f7ef86",
-        "signature": "ff460f8788830c6fc3c6eabb91a3f987713803b2211126dd75050e86e21f2b51",
+        "version": "38c0bc8c9f044ff15616b13eb67e08984256f7a6ad3fc8d37a7b448405f22c35",
+        "signature": "90c880ebc449aeacc461928851c462675b5d77e82b5db48b3c70ef6929f5d17c",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
@@ -8512,7 +8512,6 @@
       ],
       "../src/nestjs-winston-logger.middleware.ts": [
         "../node_modules/@types/express/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
         "../src/nestjs-winston-logger.service.ts"
       ],
       "../src/nestjs-winston-logger.module.ts": [
@@ -12311,7 +12310,6 @@
       ],
       "../src/nestjs-winston-logger.middleware.ts": [
         "../node_modules/@types/express/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
         "../src/nestjs-winston-logger.service.ts"
       ],
       "../src/nestjs-winston-logger.module.ts": [
