@@ -1,8 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.appendRequestIdToLogger = void 0;
+exports.appendRequestIdToLogger = exports.appendIdToRequest = void 0;
+const uuid_1 = require("uuid");
+const appendIdToRequest = (req, res, next) => {
+    const uuid = uuid_1.v4();
+    Object.assign(req, { requestId: uuid });
+    next();
+};
+exports.appendIdToRequest = appendIdToRequest;
 const appendRequestIdToLogger = (logger, label, value) => (req, res, next) => {
-    logger.appendDefaultMeta("request-id", req["request-id"]);
+    logger.appendDefaultMeta("request-id", req["requestId"]);
     next();
 };
 exports.appendRequestIdToLogger = appendRequestIdToLogger;
