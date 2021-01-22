@@ -8,7 +8,7 @@ const appendIdToRequest = (req, res, next) => {
     next();
 };
 exports.appendIdToRequest = appendIdToRequest;
-const appendRequestIdToLogger = (logger, label, value) => (req, res, next) => {
+const appendRequestIdToLogger = (logger) => (req, res, next) => {
     logger.appendDefaultMeta("request-id", req["requestId"]);
     next();
 };

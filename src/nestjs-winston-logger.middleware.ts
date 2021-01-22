@@ -15,8 +15,6 @@ export const appendIdToRequest = (
 
 export const appendRequestIdToLogger = (
   logger: NestjsWinstonLoggerService,
-  label: string,
-  value: string,
 ) => (req: Request, res: Response, next: NextFunction) => {
   logger.appendDefaultMeta("request-id", req["requestId"]);
   next();

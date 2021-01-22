@@ -4406,8 +4406,8 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.middleware.ts": {
-        "version": "d92aafd5b5f192fc99553e0cf4d469c73749a988fa6e99c44a51764ec5a85c0f",
-        "signature": "fed14945dddbbe4c6fdec0722d31a6eacca7e8b06cc7f33078d531f08b136008",
+        "version": "e5fec2c33187ecdbb107f0125ffcfa3934f4daf5a5df88c04bb7810720136b8b",
+        "signature": "46a7756b5b7679d7709c4fdc3561f3a091d372ec206ed9f9b0cc20562d6cb5fa",
         "affectsGlobalScope": false
       },
       "../src/morgan/morgan.constants.ts": {
