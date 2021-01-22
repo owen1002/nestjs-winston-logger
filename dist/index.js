@@ -15,4 +15,5 @@ __exportStar(require("./nestjs-winston-logger.interceptor"), exports);
 __exportStar(require("./nestjs-winston-logger.module"), exports);
 __exportStar(require("./nestjs-winston-logger.service"), exports);
 __exportStar(require("./nestjs-winston-logger.middleware"), exports);
+__exportStar(require("./morgan"), exports);
 //# sourceMappingURL=index.js.map

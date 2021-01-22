@@ -19,12 +19,10 @@ import {
   NestjsWinstonLoggerService,
   appendRequestIdToLogger,
   LoggingInterceptor,
-} from "nestjs-winston-logger";
-import {
   configMorgan,
   morganRequestLogger,
   morganResponseLogger,
-} from "nestjs-winston-logger/morgan";
+} from "nestjs-winston-logger";
 
 import { format, transports } from "winston";
 import * as helmet from "helmet";

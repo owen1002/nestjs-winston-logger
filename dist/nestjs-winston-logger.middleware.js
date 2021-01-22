@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.appendRequestHeaderToLogger = void 0;
-const appendRequestHeaderToLogger = (logger, label, value) => (req, res, next) => {
-    logger.appendDefaultMeta(label, value);
+exports.appendRequestIdToLogger = void 0;
+const appendRequestIdToLogger = (logger, label, value) => (req, res, next) => {
+    logger.appendDefaultMeta("request-id", req["request-id"]);
     next();
 };
-exports.appendRequestHeaderToLogger = appendRequestHeaderToLogger;
+exports.appendRequestIdToLogger = appendRequestIdToLogger;
 //# sourceMappingURL=nestjs-winston-logger.middleware.js.map

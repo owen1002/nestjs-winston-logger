@@ -4406,13 +4406,8 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.middleware.ts": {
-        "version": "38c0bc8c9f044ff15616b13eb67e08984256f7a6ad3fc8d37a7b448405f22c35",
-        "signature": "90c880ebc449aeacc461928851c462675b5d77e82b5db48b3c70ef6929f5d17c",
-        "affectsGlobalScope": false
-      },
-      "../src/index.ts": {
-        "version": "164a1cd4f12c281e24c14680bf346f0a211c60aa482f844199aa9ba029ab6f97",
-        "signature": "49fb0e0fb82662a8d22950ebc55e55c9eedf8d4711cae9117728ae0db7bee0a8",
+        "version": "ec0326052b9377ea31494a02077e7bed7af8d3f1295aa7b1f6ea3089f04d4633",
+        "signature": "097ef4a907a9ed46c38334e0f98c7e0d2b2c93c0308bffe60dbdba1652d9b678",
         "affectsGlobalScope": false
       },
       "../src/morgan/morgan.constants.ts": {
@@ -4433,6 +4428,11 @@
       "../src/morgan/index.ts": {
         "version": "5c8ffeefb031d076b1fe555067eea9c7a432106c0da84d96ebef12b68a368478",
         "signature": "5626a9ac079b85604aedc9e32bead6f48473fcee08b0b4e535ae003db036b245",
+        "affectsGlobalScope": false
+      },
+      "../src/index.ts": {
+        "version": "3ed4bab321f96fbac69720be891d9f3b49f04e87a936c262cbebee1d033d9afc",
+        "signature": "7ab3f7665a8c5ab94607863924ef987f4c756507477f4ff2818426f8af58f46e",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -8483,6 +8483,7 @@
         "../node_modules/zen-observable-ts/lib/types.d.ts"
       ],
       "../src/index.ts": [
+        "../src/morgan/index.ts",
         "../src/nestjs-winston-logger.constants.ts",
         "../src/nestjs-winston-logger.interceptor.ts",
         "../src/nestjs-winston-logger.middleware.ts",
@@ -8512,6 +8513,7 @@
       ],
       "../src/nestjs-winston-logger.middleware.ts": [
         "../node_modules/@types/express/index.d.ts",
+        "../node_modules/@types/node/http.d.ts",
         "../src/nestjs-winston-logger.service.ts"
       ],
       "../src/nestjs-winston-logger.module.ts": [
@@ -12286,6 +12288,7 @@
         "../node_modules/zen-observable-ts/lib/types.d.ts"
       ],
       "../src/index.ts": [
+        "../src/morgan/index.ts",
         "../src/nestjs-winston-logger.constants.ts",
         "../src/nestjs-winston-logger.interceptor.ts",
         "../src/nestjs-winston-logger.middleware.ts",
