@@ -16,6 +16,7 @@ export class LoggingInterceptor implements NestInterceptor {
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     this.logger.setContext(context.getClass().name);
+    const ctx = context.switchToHttp();
 
     if (context.getType() === "http") {
       // do something that is only important in the context of regular HTTP requests (REST)
@@ -28,7 +29,11 @@ export class LoggingInterceptor implements NestInterceptor {
       const gqlContext = GqlExecutionContext.create(context);
       const args = gqlContext.getArgs();
       this.logger.log(
-        `${JSON.stringify({ type: LOG_TYPE.REQUEST_ARGS, value: args })}`,
+        `${JSON.stringify({
+          headers: ctx.getRequest().headers,
+          type: LOG_TYPE.REQUEST_ARGS,
+          value: args,
+        })}`,
       );
     }
 
@@ -36,7 +41,7 @@ export class LoggingInterceptor implements NestInterceptor {
     return next.handle().pipe(
       tap({
         next: (value) => {
-          this.logger.log(`Response: ${JSON.stringify(value)}`);
+          this.logger.log(`${JSON.stringify({ Response: value })}`);
         },
         /*
        /**

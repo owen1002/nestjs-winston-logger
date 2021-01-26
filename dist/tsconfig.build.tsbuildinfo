@@ -4396,7 +4396,7 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.interceptor.ts": {
-        "version": "f16821e397f1b049f95dbdd30fa617a3f38d9e157b7edfb1f9e6dbe28e272960",
+        "version": "4bf94b96fa3f3a3bfa18351a2bde47f89582c8e206f443aaef4ca007b40b1ece",
         "signature": "778138af30ba17fae827e3e742b30415032fcae3d91527b8c8effbe5616947df",
         "affectsGlobalScope": false
       },
@@ -4406,12 +4406,12 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.middleware.ts": {
-        "version": "e5fec2c33187ecdbb107f0125ffcfa3934f4daf5a5df88c04bb7810720136b8b",
+        "version": "8b6449176a26bd4fe256943f550a3621d97272d211ae4e1814f1ab870803a841",
         "signature": "46a7756b5b7679d7709c4fdc3561f3a091d372ec206ed9f9b0cc20562d6cb5fa",
         "affectsGlobalScope": false
       },
       "../src/morgan/morgan.constants.ts": {
-        "version": "c54a92f81e5d4c745574af2e41402525e5b802a9edd46414ccfd2176ac11a48a",
+        "version": "911983e1fa56c86ba336a46e6cea324cfd54e70989b4a947ba50d172ef64b2ed",
         "signature": "bcfe9776a0499eea391c4e8bb6a5e20d707da3c538d4867cdafee0cac5b408ba",
         "affectsGlobalScope": false
       },
@@ -4421,8 +4421,8 @@
         "affectsGlobalScope": false
       },
       "../src/morgan/morgan.middleware.ts": {
-        "version": "9488167f2e5a588149ea37f65130820aeec0c5a97a6b80acb4443da4123b57ca",
-        "signature": "fe3d3abc2deea5b194f5d3bfa27e92529a79b4182b0fb3b803f302fdda91a777",
+        "version": "58b2235d7513e14842320b71ae61227fd10d374b26fe8d98560057876b53a2bd",
+        "signature": "6f6554b7986f8411719f06df9e46e6b6083f3ab46fe9ac6f4e9a834268728295",
         "affectsGlobalScope": false
       },
       "../src/morgan/index.ts": {

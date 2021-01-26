@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.morganResponseLogger = exports.morganRequestLogger = void 0;
 const morgan = require("morgan");
 const morgan_constants_1 = require("./morgan.constants");
-const morganRequestLogger = (logger) => morgan(morgan_constants_1.MORGAN_FORMAT_STRING.REQUEST, {
+const morganRequestLogger = (logger, morganFormatString = morgan_constants_1.MORGAN_FORMAT_STRING.REQUEST) => morgan(morganFormatString, {
     immediate: true,
     stream: {
         write: (message) => {
@@ -12,7 +12,7 @@ const morganRequestLogger = (logger) => morgan(morgan_constants_1.MORGAN_FORMAT_
     },
 });
 exports.morganRequestLogger = morganRequestLogger;
-const morganResponseLogger = (logger) => morgan(morgan_constants_1.MORGAN_FORMAT_STRING.RESPONSE, {
+const morganResponseLogger = (logger, morganFormatString = morgan_constants_1.MORGAN_FORMAT_STRING.RESPONSE) => morgan(morganFormatString, {
     stream: {
         write: (message) => {
             logger.log(message);

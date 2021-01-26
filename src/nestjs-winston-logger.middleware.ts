@@ -9,13 +9,15 @@ export const appendIdToRequest = (
   next: NextFunction,
 ) => {
   const uuid = uuidv4();
-  Object.assign(req, { requestId: uuid });
+  req.headers.set("requestId", uuid);
   next();
 };
 
-export const appendRequestIdToLogger = (
-  logger: NestjsWinstonLoggerService,
-) => (req: Request, res: Response, next: NextFunction) => {
-  logger.appendDefaultMeta("request-id", req["requestId"]);
+export const appendRequestIdToLogger = (logger: NestjsWinstonLoggerService) => (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  logger.appendDefaultMeta("request-id", req.headers["requestId"]);
   next();
 };
