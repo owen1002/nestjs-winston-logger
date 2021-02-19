@@ -20,6 +20,7 @@ let LoggingInterceptor = class LoggingInterceptor {
         this.logger = logger;
     }
     intercept(context, next) {
+        var _a;
         this.logger.setContext(context.getClass().name);
         const ctx = context.switchToHttp();
         if (context.getType() === "http") {
@@ -30,7 +31,7 @@ let LoggingInterceptor = class LoggingInterceptor {
             const gqlContext = graphql_1.GqlExecutionContext.create(context);
             const args = gqlContext.getArgs();
             this.logger.log(`${JSON.stringify({
-                headers: ctx.getRequest().headers,
+                headers: (_a = ctx.getRequest()) === null || _a === void 0 ? void 0 : _a.headers,
                 type: nestjs_winston_logger_constants_1.LOG_TYPE.REQUEST_ARGS,
                 value: args,
             })}`);

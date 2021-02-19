@@ -9,6 +9,7 @@ import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
 import { LOG_TYPE } from "./nestjs-winston-logger.constants";
 import { NestjsWinstonLoggerService } from "./nestjs-winston-logger.service";
+import { Request } from "express";
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
@@ -30,7 +31,7 @@ export class LoggingInterceptor implements NestInterceptor {
       const args = gqlContext.getArgs();
       this.logger.log(
         `${JSON.stringify({
-          headers: ctx.getRequest().headers,
+          headers: ctx.getRequest<Request>()?.headers,
           type: LOG_TYPE.REQUEST_ARGS,
           value: args,
         })}`,

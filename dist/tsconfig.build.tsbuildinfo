@@ -4396,7 +4396,7 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.interceptor.ts": {
-        "version": "4bf94b96fa3f3a3bfa18351a2bde47f89582c8e206f443aaef4ca007b40b1ece",
+        "version": "e0999af1d37b1085f5669055cb2efb790729e8172436a3f6a64d44617be77fae",
         "signature": "778138af30ba17fae827e3e742b30415032fcae3d91527b8c8effbe5616947df",
         "affectsGlobalScope": false
       },
@@ -4406,8 +4406,8 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.middleware.ts": {
-        "version": "8b6449176a26bd4fe256943f550a3621d97272d211ae4e1814f1ab870803a841",
-        "signature": "46a7756b5b7679d7709c4fdc3561f3a091d372ec206ed9f9b0cc20562d6cb5fa",
+        "version": "2b5a01fec4cabfb568f8ba0115cc321a89fa26d2ed30f82fd0141ed860067762",
+        "signature": "66c62597b83d6a59e1519834159fc73e9d9ac68cc8703c8ee0c4be6c3c7d648c",
         "affectsGlobalScope": false
       },
       "../src/morgan/morgan.constants.ts": {
@@ -8506,6 +8506,7 @@
       "../src/nestjs-winston-logger.interceptor.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
+        "../node_modules/@types/express/index.d.ts",
         "../node_modules/rxjs/index.d.ts",
         "../node_modules/rxjs/operators/index.d.ts",
         "../src/nestjs-winston-logger.constants.ts",
@@ -8513,7 +8514,6 @@
       ],
       "../src/nestjs-winston-logger.middleware.ts": [
         "../node_modules/@types/express/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
         "../src/nestjs-winston-logger.service.ts"
       ],
       "../src/nestjs-winston-logger.module.ts": [

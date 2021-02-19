@@ -1,6 +1,5 @@
-import { Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import { NestjsWinstonLoggerService } from "./nestjs-winston-logger.service";
-import { IncomingMessage } from "http";
 import { v4 as uuidv4 } from "uuid";
 
 export const appendIdToRequest = (
@@ -8,8 +7,10 @@ export const appendIdToRequest = (
   res: Response,
   next: NextFunction,
 ) => {
-  const uuid = uuidv4();
-  req.headers.set("requestId", uuid);
+  if (!req.headers["request-id"]){
+    const uuid = uuidv4();
+    req.headers["request-id"] = uuid;
+  }
   next();
 };
 
@@ -18,6 +19,6 @@ export const appendRequestIdToLogger = (logger: NestjsWinstonLoggerService) => (
   res: Response,
   next: NextFunction,
 ) => {
-  logger.appendDefaultMeta("request-id", req.headers["requestId"]);
+  logger.appendDefaultMeta("request-id", req.headers["request-id"] as string);
   next();
 };
