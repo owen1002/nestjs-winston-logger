@@ -38,11 +38,33 @@ export class LoggingInterceptor implements NestInterceptor {
       );
     }
 
+    var replaceCircular = function (val, cache = null) {
+      cache = cache || new WeakSet();
+
+      if (val && typeof val == 'object') {
+        if (cache.has(val)) return '[Circular]';
+
+        cache.add(val);
+
+        var obj = Array.isArray(val) ? [] : {};
+        for (var idx in val) {
+          obj[idx] = replaceCircular(val[idx], cache);
+        }
+
+        cache.delete(val);
+        return obj;
+      }
+
+      return val;
+    };
+
     // const now = Date.now();
     return next.handle().pipe(
       tap({
         next: (value) => {
-          this.logger.log(`${JSON.stringify({ Response: value })}`);
+          this.logger.log(
+            `${JSON.stringify(replaceCircular({ Response: value }))}`,
+          );
         },
         /*
        /**
