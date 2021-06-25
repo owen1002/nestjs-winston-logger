@@ -97,13 +97,11 @@ Inside demo.service.ts
 
 ```ts
 import { Injectable } from "@nestjs/common";
-import { NestjsWinstonLoggerService } from "nestjs-winston-logger";
+import { NestjsWinstonLoggerService, InjectLogger } from "nestjs-winston-logger";
 
 @Injectable()
 export class DemoService {
-  constructor(private logger: NestjsWinstonLoggerService) {
-    logger.setContext(DemoService.name);
-  }
+  constructor(@InjectLogger(DemoService.name) private logger: NestjsWinstonLoggerService) {}
 }
 ```
 

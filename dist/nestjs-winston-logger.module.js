@@ -11,8 +11,20 @@ exports.NestjsWinstonLoggerModule = void 0;
 const common_1 = require("@nestjs/common");
 const nestjs_winston_logger_constants_1 = require("./nestjs-winston-logger.constants");
 const nestjs_winston_logger_service_1 = require("./nestjs-winston-logger.service");
+const nestjs_winston_logger_decorator_1 = require("./nestjs-winston-logger.decorator");
 let NestjsWinstonLoggerModule = NestjsWinstonLoggerModule_1 = class NestjsWinstonLoggerModule {
     static forRoot(options) {
+        const contexts = nestjs_winston_logger_decorator_1.getLoggerContexts();
+        const loggerProviders = contexts.map((context) => {
+            return {
+                provide: nestjs_winston_logger_decorator_1.getLoggerToken(context),
+                useFactory: () => {
+                    const logger = new nestjs_winston_logger_service_1.NestjsWinstonLoggerService(options);
+                    logger.setContext(context);
+                    return logger;
+                },
+            };
+        });
         return {
             module: NestjsWinstonLoggerModule_1,
             providers: [
@@ -21,8 +33,12 @@ let NestjsWinstonLoggerModule = NestjsWinstonLoggerModule_1 = class NestjsWinsto
                     useValue: options,
                 },
                 nestjs_winston_logger_service_1.NestjsWinstonLoggerService,
+                ...loggerProviders,
             ],
-            exports: [nestjs_winston_logger_service_1.NestjsWinstonLoggerService],
+            exports: [
+                nestjs_winston_logger_service_1.NestjsWinstonLoggerService,
+                ...contexts.map((context) => nestjs_winston_logger_decorator_1.getLoggerToken(context)),
+            ],
         };
     }
 };
