@@ -15,6 +15,7 @@ const graphql_1 = require("@nestjs/graphql");
 const operators_1 = require("rxjs/operators");
 const nestjs_winston_logger_constants_1 = require("./nestjs-winston-logger.constants");
 const nestjs_winston_logger_service_1 = require("./nestjs-winston-logger.service");
+const utils_1 = require("./utils");
 let LoggingInterceptor = class LoggingInterceptor {
     constructor(logger) {
         this.logger = logger;
@@ -24,6 +25,12 @@ let LoggingInterceptor = class LoggingInterceptor {
         this.logger.setContext(context.getClass().name);
         const ctx = context.switchToHttp();
         if (context.getType() === "http") {
+            const request = ctx.getRequest();
+            this.logger.log(`${JSON.stringify({
+                headers: request.headers,
+                type: nestjs_winston_logger_constants_1.LOG_TYPE.REQUEST_ARGS,
+                value: request.body,
+            }, utils_1.getCircularReplacer())}`);
         }
         else if (context.getType() === "rpc") {
         }
@@ -34,11 +41,11 @@ let LoggingInterceptor = class LoggingInterceptor {
                 headers: (_a = ctx.getRequest()) === null || _a === void 0 ? void 0 : _a.headers,
                 type: nestjs_winston_logger_constants_1.LOG_TYPE.REQUEST_ARGS,
                 value: args,
-            })}`);
+            }, utils_1.getCircularReplacer())}`);
         }
         return next.handle().pipe(operators_1.tap({
             next: (value) => {
-                this.logger.log(`${JSON.stringify({ Response: value })}`);
+                this.logger.log(`${JSON.stringify({ Response: value }, utils_1.getCircularReplacer())}`);
             },
         }));
     }

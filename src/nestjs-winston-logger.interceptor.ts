@@ -10,6 +10,7 @@ import { tap } from "rxjs/operators";
 import { LOG_TYPE } from "./nestjs-winston-logger.constants";
 import { NestjsWinstonLoggerService } from "./nestjs-winston-logger.service";
 import { Request } from "express";
+import { getCircularReplacer } from "./utils";
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
@@ -21,20 +22,34 @@ export class LoggingInterceptor implements NestInterceptor {
 
     if (context.getType() === "http") {
       // do something that is only important in the context of regular HTTP requests (REST)
-      // const ctx = context.switchToHttp();
-      // const request = ctx.getRequest<Request>();
-      // do something
+      const request: Request = ctx.getRequest();
+
+      this.logger.log(
+        `${JSON.stringify(
+          {
+            headers: request.headers,
+            type: LOG_TYPE.REQUEST_ARGS,
+            // if body is multipart, request.body={}
+            value: request.body,
+          },
+          getCircularReplacer(),
+        )}`,
+      );
     } else if (context.getType() === "rpc") {
       // do something that is only important in the context of Microservice requests
     } else if (context.getType<GqlContextType>() === "graphql") {
       const gqlContext = GqlExecutionContext.create(context);
       const args = gqlContext.getArgs();
+
       this.logger.log(
-        `${JSON.stringify({
-          headers: ctx.getRequest<Request>()?.headers,
-          type: LOG_TYPE.REQUEST_ARGS,
-          value: args,
-        })}`,
+        `${JSON.stringify(
+          {
+            headers: ctx.getRequest<Request>()?.headers,
+            type: LOG_TYPE.REQUEST_ARGS,
+            value: args,
+          },
+          getCircularReplacer(),
+        )}`,
       );
     }
 
@@ -42,7 +57,9 @@ export class LoggingInterceptor implements NestInterceptor {
     return next.handle().pipe(
       tap({
         next: (value) => {
-          this.logger.log(`${JSON.stringify({ Response: value })}`);
+          this.logger.log(
+            `${JSON.stringify({ Response: value }, getCircularReplacer())}`,
+          );
         },
         /*
        /**

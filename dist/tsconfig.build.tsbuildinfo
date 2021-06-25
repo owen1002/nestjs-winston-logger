@@ -168,7 +168,7 @@
       },
       "../src/nestjs-winston-logger.constants.ts": {
         "version": "274f975ac10b090f78a234f9f8cbddf2ffb9130536d04e4ab0822a38ec09337b",
-        "signature": "f866107e2ab69b3531b44f084fcb4b36c31c80b510fe99af134235bed0f00571",
+        "signature": "bba6604bae81ba7edd1b8f8188090f6f3b82f36c4de15eeec960649d83019fec",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts": {
@@ -4392,52 +4392,57 @@
       },
       "../src/nestjs-winston-logger.service.ts": {
         "version": "05eb3c4cabcfc72e5aa9899370923aa62ebb03b9eee678dcb48800b3f88f3f48",
-        "signature": "acb8cfd5c5355b220715f5fa25cca02a7d972c5d62e861c395fa82d83ccbc7c8",
+        "signature": "b9a2af6638a5422f3f2a0c557fc74aff5ef539e3718fe1196ac76f78575dd0ee",
+        "affectsGlobalScope": false
+      },
+      "../src/utils.ts": {
+        "version": "35a82c28cb1c6b57049ae6c1a51647149c86da8eed9059e72dbe61c3e9f7b2e8",
+        "signature": "5ccf02e0468061aaa9fdc295e221b14b52f887ec766a7544c8c2e68a417992e7",
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.interceptor.ts": {
-        "version": "e0999af1d37b1085f5669055cb2efb790729e8172436a3f6a64d44617be77fae",
-        "signature": "5ec057527c4e54fb212143d488dfb0bd2ab80d05ddb4a387e0c3f8416b9c1432",
+        "version": "a102a3bba17f9182e711c4d786ac7fc33ce33c245b280eb955c411505ee6edcb",
+        "signature": "778138af30ba17fae827e3e742b30415032fcae3d91527b8c8effbe5616947df",
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.decorator.ts": {
         "version": "04051e2cbe253d71833d7c6258fd6dd877e01ff8e76dfb1db1f0f32d95d914e7",
-        "signature": "bd68537221ddb67aa51369124194290a9e1a37538a84688bb6ff38c51e1dde62",
+        "signature": "250b70f997256fc0f05b81e479826b0f9df20618a78e381e2aa36722042d2775",
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.module.ts": {
         "version": "651bcb52742ca2c0f7112b8220f3ce1fa4b45089724a8c627e29f551d3d9530c",
-        "signature": "aa86f639e27020c81f3793014d2794901e00dcc13b152cef87cda34c4c428889",
+        "signature": "1531231907556e7122a1432a317068694fe8612c9b01c74b09eb6b5cfc397261",
         "affectsGlobalScope": false
       },
       "../src/nestjs-winston-logger.middleware.ts": {
         "version": "2b5a01fec4cabfb568f8ba0115cc321a89fa26d2ed30f82fd0141ed860067762",
-        "signature": "11db287c71ef68d8705f3ef85c3d85ebd9d5bd608821a9159201020e0e405c25",
+        "signature": "66c62597b83d6a59e1519834159fc73e9d9ac68cc8703c8ee0c4be6c3c7d648c",
         "affectsGlobalScope": false
       },
       "../src/morgan/morgan.constants.ts": {
         "version": "911983e1fa56c86ba336a46e6cea324cfd54e70989b4a947ba50d172ef64b2ed",
-        "signature": "ff4bbf72970552368e8d4f6b9c2b4ef0b229f301b1d79e42bae9a719a9e2d75e",
+        "signature": "bcfe9776a0499eea391c4e8bb6a5e20d707da3c538d4867cdafee0cac5b408ba",
         "affectsGlobalScope": false
       },
       "../src/morgan/morgan.config.ts": {
         "version": "ead73b97ba6557dae5d923f9f24f480f004446a39cbf5175c3a8730cb61bacb8",
-        "signature": "b7b506ba2455e30069fddeb9f0e66f0fa81f71ad9906bacfad3ce72e01845482",
+        "signature": "b5c606400a36ace21c06b3fe3e08f38a7784642eae779339cbae90d81cc85e4a",
         "affectsGlobalScope": false
       },
       "../src/morgan/morgan.middleware.ts": {
         "version": "58b2235d7513e14842320b71ae61227fd10d374b26fe8d98560057876b53a2bd",
-        "signature": "c3523288d33534f177a9ec6e10a372c6a4bbff17e7f485328f7eecd61371b85b",
+        "signature": "6f6554b7986f8411719f06df9e46e6b6083f3ab46fe9ac6f4e9a834268728295",
         "affectsGlobalScope": false
       },
       "../src/morgan/index.ts": {
         "version": "5c8ffeefb031d076b1fe555067eea9c7a432106c0da84d96ebef12b68a368478",
-        "signature": "5c8ffeefb031d076b1fe555067eea9c7a432106c0da84d96ebef12b68a368478",
+        "signature": "5626a9ac079b85604aedc9e32bead6f48473fcee08b0b4e535ae003db036b245",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
         "version": "e8310b8dba833684a86e323c523bf3e961488ede631823a6a63cd677918cb9a5",
-        "signature": "e8310b8dba833684a86e323c523bf3e961488ede631823a6a63cd677918cb9a5",
+        "signature": "baa8af223683c951e2d15b34ac974df5b480b5f33001b0f73d63db121f8d26f5",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -8520,7 +8525,8 @@
         "../node_modules/rxjs/index.d.ts",
         "../node_modules/rxjs/operators/index.d.ts",
         "../src/nestjs-winston-logger.constants.ts",
-        "../src/nestjs-winston-logger.service.ts"
+        "../src/nestjs-winston-logger.service.ts",
+        "../src/utils.ts"
       ],
       "../src/nestjs-winston-logger.middleware.ts": [
         "../node_modules/@types/express/index.d.ts",
