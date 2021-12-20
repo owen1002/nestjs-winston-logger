@@ -16,7 +16,7 @@ exports.NestjsWinstonLoggerService = void 0;
 const common_1 = require("@nestjs/common");
 const winston_1 = require("winston");
 const nestjs_winston_logger_constants_1 = require("./nestjs-winston-logger.constants");
-let NestjsWinstonLoggerService = class NestjsWinstonLoggerService extends common_1.Logger {
+let NestjsWinstonLoggerService = class NestjsWinstonLoggerService extends common_1.ConsoleLogger {
     constructor(config) {
         super();
         this.logger = (0, winston_1.createLogger)(config);
