@@ -4,6 +4,10 @@
   "description": "",
   "author": "Owen Siu",
   "license": "MIT",
+  "bugs":{
+    "url" : "https://github.com/owen1002/nestjs-winston-logger/issues",
+    "email" : "owensiu1002@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/owen1002/nestjs-winston-logger"
@@ -12,7 +16,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
