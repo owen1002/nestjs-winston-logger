@@ -9,7 +9,6 @@ import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
 import { LOG_TYPE } from "./nestjs-winston-logger.constants";
 import { NestjsWinstonLoggerService } from "./nestjs-winston-logger.service";
-import { Request } from "express";
 import { getCircularReplacer } from "./utils";
 
 @Injectable()
