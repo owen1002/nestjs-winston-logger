@@ -74,5 +74,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "publishConfig": {
+    "registry":"https://www.npmjs.com/package/nestjs-winston-logger"
   }
 }
