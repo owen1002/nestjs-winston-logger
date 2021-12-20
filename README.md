@@ -22,6 +22,7 @@ import {
   configMorgan,
   morganRequestLogger,
   morganResponseLogger,
+  appendIdToRequest
 } from "nestjs-winston-logger";
 
 import { format, transports } from "winston";
