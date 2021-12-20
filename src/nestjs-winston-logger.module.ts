@@ -7,18 +7,44 @@ import {
   getLoggerToken,
 } from "./nestjs-winston-logger.decorator";
 
+export type ContextOverrides = {
+  /**
+   * context is the token used in @InjectLogger.
+   * For example, @InjectLogger(AUTH_LOG) where const AUTH_LOG = "AUTH_LOG"
+   */
+  [context:string]:LoggerOptions
+};
+
+export type LoggerConfig = {
+  /**
+   * Logger configuration used if no overrides provided
+   */
+  defaultConfig:LoggerOptions,
+
+  /**
+   * Provides logger configuration specific to the provided logger context
+   */
+  overrides?: ContextOverrides
+};
+
+
 @Module({})
 export class NestjsWinstonLoggerModule {
-  static forRoot(options: LoggerOptions): DynamicModule {
+  static forRoot(options: LoggerOptions | LoggerConfig): DynamicModule {
+    let config = getLoggerConfig(options);
+
     const contexts = getLoggerContexts();
 
     const loggerProviders: FactoryProvider<NestjsWinstonLoggerService>[] = contexts.map(
       (context) => {
+
+        let hasOverride = config.overrides && config.overrides[context];
+        let loggerOptions =  hasOverride ? config.overrides[context] : config.defaultConfig;
         return {
           provide: getLoggerToken(context),
           useFactory: () => {
-            const logger = new NestjsWinstonLoggerService(options);
-            logger.setContext(context);
+            const logger = new NestjsWinstonLoggerService(loggerOptions);
+            logger.setContext(hasOverride ? { context:context } : context);
             return logger;
           },
         };
@@ -41,4 +67,12 @@ export class NestjsWinstonLoggerModule {
       ],
     };
   }
+}
+
+function getLoggerConfig(options?:LoggerOptions | LoggerConfig):LoggerConfig {
+  return instanceOfLoggerConfig(options) ? options : { defaultConfig:options };
+}
+
+function instanceOfLoggerConfig(object:LoggerOptions | LoggerConfig): object is LoggerConfig {
+  return object != null && 'defaultConfig' in object;
 }
