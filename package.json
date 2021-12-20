@@ -79,6 +79,6 @@
     "testEnvironment": "node"
   },
   "publishConfig": {
-    "registry":"https://www.npmjs.com/package/nestjs-winston-logger"
+    "registry":"https://registry.npmjs.org/"
   }
 }
