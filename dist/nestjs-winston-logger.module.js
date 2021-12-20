@@ -14,10 +14,10 @@ const nestjs_winston_logger_service_1 = require("./nestjs-winston-logger.service
 const nestjs_winston_logger_decorator_1 = require("./nestjs-winston-logger.decorator");
 let NestjsWinstonLoggerModule = NestjsWinstonLoggerModule_1 = class NestjsWinstonLoggerModule {
     static forRoot(options) {
-        const contexts = nestjs_winston_logger_decorator_1.getLoggerContexts();
+        const contexts = (0, nestjs_winston_logger_decorator_1.getLoggerContexts)();
         const loggerProviders = contexts.map((context) => {
             return {
-                provide: nestjs_winston_logger_decorator_1.getLoggerToken(context),
+                provide: (0, nestjs_winston_logger_decorator_1.getLoggerToken)(context),
                 useFactory: () => {
                     const logger = new nestjs_winston_logger_service_1.NestjsWinstonLoggerService(options);
                     logger.setContext(context);
@@ -37,13 +37,13 @@ let NestjsWinstonLoggerModule = NestjsWinstonLoggerModule_1 = class NestjsWinsto
             ],
             exports: [
                 nestjs_winston_logger_service_1.NestjsWinstonLoggerService,
-                ...contexts.map((context) => nestjs_winston_logger_decorator_1.getLoggerToken(context)),
+                ...contexts.map((context) => (0, nestjs_winston_logger_decorator_1.getLoggerToken)(context)),
             ],
         };
     }
 };
 NestjsWinstonLoggerModule = NestjsWinstonLoggerModule_1 = __decorate([
-    common_1.Module({})
+    (0, common_1.Module)({})
 ], NestjsWinstonLoggerModule);
 exports.NestjsWinstonLoggerModule = NestjsWinstonLoggerModule;
 //# sourceMappingURL=nestjs-winston-logger.module.js.map

@@ -30,7 +30,7 @@ let LoggingInterceptor = class LoggingInterceptor {
                 headers: request.headers,
                 type: nestjs_winston_logger_constants_1.LOG_TYPE.REQUEST_ARGS,
                 value: request.body,
-            }, utils_1.getCircularReplacer())}`);
+            }, (0, utils_1.getCircularReplacer)())}`);
         }
         else if (context.getType() === "rpc") {
         }
@@ -41,17 +41,17 @@ let LoggingInterceptor = class LoggingInterceptor {
                 headers: (_a = ctx.getRequest()) === null || _a === void 0 ? void 0 : _a.headers,
                 type: nestjs_winston_logger_constants_1.LOG_TYPE.REQUEST_ARGS,
                 value: args,
-            }, utils_1.getCircularReplacer())}`);
+            }, (0, utils_1.getCircularReplacer)())}`);
         }
-        return next.handle().pipe(operators_1.tap({
+        return next.handle().pipe((0, operators_1.tap)({
             next: (value) => {
-                this.logger.log(`${JSON.stringify({ Response: value }, utils_1.getCircularReplacer())}`);
+                this.logger.log(`${JSON.stringify({ Response: value }, (0, utils_1.getCircularReplacer)())}`);
             },
         }));
     }
 };
 LoggingInterceptor = __decorate([
-    common_1.Injectable(),
+    (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [nestjs_winston_logger_service_1.NestjsWinstonLoggerService])
 ], LoggingInterceptor);
 exports.LoggingInterceptor = LoggingInterceptor;

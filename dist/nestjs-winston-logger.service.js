@@ -19,7 +19,7 @@ const nestjs_winston_logger_constants_1 = require("./nestjs-winston-logger.const
 let NestjsWinstonLoggerService = class NestjsWinstonLoggerService extends common_1.Logger {
     constructor(config) {
         super();
-        this.logger = winston_1.createLogger(config);
+        this.logger = (0, winston_1.createLogger)(config);
     }
     setContext(serviceName) {
         this.logger.defaultMeta = Object.assign(Object.assign({}, this.logger.defaultMeta), { service: serviceName });
@@ -44,8 +44,8 @@ let NestjsWinstonLoggerService = class NestjsWinstonLoggerService extends common
     }
 };
 NestjsWinstonLoggerService = __decorate([
-    common_1.Injectable({ scope: common_1.Scope.TRANSIENT }),
-    __param(0, common_1.Inject(nestjs_winston_logger_constants_1.NESTJS_WINSTON_CONFIG_OPTIONS)),
+    (0, common_1.Injectable)({ scope: common_1.Scope.TRANSIENT }),
+    __param(0, (0, common_1.Inject)(nestjs_winston_logger_constants_1.NESTJS_WINSTON_CONFIG_OPTIONS)),
     __metadata("design:paramtypes", [Object])
 ], NestjsWinstonLoggerService);
 exports.NestjsWinstonLoggerService = NestjsWinstonLoggerService;

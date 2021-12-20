@@ -10,7 +10,7 @@ function getLoggerToken(context) {
 exports.getLoggerToken = getLoggerToken;
 function InjectLogger(context = "") {
     loggerContexts.add(context);
-    return common_1.Inject(getLoggerToken(context));
+    return (0, common_1.Inject)(getLoggerToken(context));
 }
 exports.InjectLogger = InjectLogger;
 function getLoggerContexts() {

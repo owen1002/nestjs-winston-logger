@@ -4,7 +4,7 @@ exports.appendRequestIdToLogger = exports.appendIdToRequest = void 0;
 const uuid_1 = require("uuid");
 const appendIdToRequest = (req, res, next) => {
     if (!req.headers["request-id"]) {
-        const uuid = uuid_1.v4();
+        const uuid = (0, uuid_1.v4)();
         req.headers["request-id"] = uuid;
     }
     next();
