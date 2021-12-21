@@ -2,6 +2,11 @@ import { Inject, Injectable, ConsoleLogger, Scope } from "@nestjs/common";
 import { createLogger, LoggerOptions, Logger as WinstonLogger } from "winston";
 import { NESTJS_WINSTON_CONFIG_OPTIONS } from "./nestjs-winston-logger.constants";
 
+export type LoggerContext = {
+  service?:string,
+  [key:string]:string | number | boolean
+}
+
 @Injectable({ scope: Scope.TRANSIENT })
 export class NestjsWinstonLoggerService extends ConsoleLogger {
   private logger: WinstonLogger;
@@ -11,10 +16,18 @@ export class NestjsWinstonLoggerService extends ConsoleLogger {
     this.logger = createLogger(config);
   }
 
-  setContext(serviceName: string) {
+  setContext(context: string | LoggerContext) {
+    if (typeof context === 'string') {
+      this.logger.defaultMeta = {
+        ...this.logger.defaultMeta,
+        service: context,
+      };
+      return;
+    }
+
     this.logger.defaultMeta = {
       ...this.logger.defaultMeta,
-      service: serviceName,
+      ...context
     };
   }
 
