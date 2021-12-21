@@ -124,37 +124,30 @@ import { format, transports } from "winston";
 import { DemoService } from "./demo.service";
 import { AUTH_LOG } from "./demo.constants"
 
-function getLogConfig() {
-  const defaultConfig = {
-      format: format.combine(
-        format.timestamp({ format: "isoDateTime" }),
-        format.json(),
-        format.colorize({ all: true }),
-      ),
-      transports: [
-        new transports.File({ filename: "error.log", level: "error" }),
-        new transports.File({ filename: "combined.log" }),
-        new transports.Console(),
-      ],
-    };
-
-  let overrides:ContextOverrides = { };
-  overrides[AUTH_LOG] = {
-      ...defaultConfig,
-      transports: [
-        new transports.File({ filename: "authentication.log" })
-      ],
-    };
-
-  return {
-    defaultConfig: defaultConfig,
-    overrides: overrides
+const defaultConfig = {
+    format: format.combine(
+      format.timestamp({ format: "isoDateTime" }),
+      format.json(),
+      format.colorize({ all: true }),
+    ),
+    transports: [
+      new transports.File({ filename: "error.log", level: "error" }),
+      new transports.File({ filename: "combined.log" }),
+      new transports.Console(),
+    ],
   };
-}
+
+let overrides:ContextOverrides = { };
+overrides[AUTH_LOG] = {
+    ...defaultConfig,
+    transports: [
+      new transports.File({ filename: "authentication.log" })
+    ],
+  };
 
 @Module({
   imports: [
-    NestjsWinstonLoggerModule.forRoot(getLogConfig()),
+    NestjsWinstonLoggerModule.forRoot(defaultConfig, overrides),
   ],
   providers: [DemoService],
 })
@@ -172,10 +165,7 @@ import { AUTH_LOG } from "./demo.constants"
 export class LoginService {
   constructor(
     @InjectLogger(LoginService.name) private logger: NestjsWinstonLoggerService,
-    @InjectLogger(AUTH_LOG) private authLogger: NestjsWinstonLoggerService) {
-
-    authLogger.appendDefaultMeta('service', LoginService.name);
-  }
+    @InjectLogger(AUTH_LOG, { service: LoginService.name}) private authLogger: NestjsWinstonLoggerService) { }
 }
 ```
 

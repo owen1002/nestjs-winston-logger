@@ -4,7 +4,6 @@ import { NESTJS_WINSTON_CONFIG_OPTIONS } from "./nestjs-winston-logger.constants
 
 export type LoggerContext = {
   service?:string,
-  context?:string,
   [key:string]:string | number | boolean
 }
 
