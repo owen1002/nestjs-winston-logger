@@ -19,7 +19,6 @@ import {
   NestjsWinstonLoggerService,
   appendRequestIdToLogger,
   LoggingInterceptor,
-  configMorgan,
   morganRequestLogger,
   morganResponseLogger,
   appendIdToRequest
@@ -50,7 +49,6 @@ async function bootstrap() {
   app.use(appendIdToRequest);
   app.use(appendRequestIdToLogger(globalLogger));
 
-  configMorgan.appendMorganToken("reqId", TOKEN_TYPE.Request, "reqId");
   app.use(morganRequestLogger(globalLogger));
   app.use(morganResponseLogger(globalLogger));
 
