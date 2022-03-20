@@ -25,11 +25,13 @@ export class LoggingInterceptor implements NestInterceptor {
     const requestContext = composeContext(context);
     this.logger.setContext(requestContext.serviceName);
     const contextType: string = context.getType();
+    const requestLogContext = { ...requestContext, scope: "request" };
+    const responseLogContext = { ...requestContext, scope: "response" };
 
     switch (contextType) {
       case ExecutionContextType.HTTP: {
         // do something that is only important in the context of regular HTTP requests (REST)
-        const shouldSkip = this.options?.skip?.(requestContext);
+        const shouldSkip = this.options?.skip?.(requestLogContext);
         if (shouldSkip) break;
 
         const { request } = requestContext;
@@ -48,7 +50,7 @@ export class LoggingInterceptor implements NestInterceptor {
         break;
       }
       case ExecutionContextType.GRAPHQL: {
-        const shouldSkip = this.options?.skip?.(requestContext);
+        const shouldSkip = this.options?.skip?.(requestLogContext);
         if (shouldSkip) break;
 
         const { request, args } = requestContext;
@@ -75,7 +77,7 @@ export class LoggingInterceptor implements NestInterceptor {
     return next.handle().pipe(
       tap({
         next: (value) => {
-          const shouldSkip = this.options?.skip?.(requestContext);
+          const shouldSkip = this.options?.skip?.(responseLogContext);
           if (shouldSkip) return;
 
           this.logger.log(

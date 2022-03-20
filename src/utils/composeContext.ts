@@ -16,6 +16,7 @@ export interface RequestContext {
   context?: Record<string, any>;
   request?: Request;
   args?: any;
+  scope?: string;
 }
 
 export const composeContext = (
