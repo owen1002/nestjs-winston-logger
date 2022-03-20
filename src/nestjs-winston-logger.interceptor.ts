@@ -9,11 +9,17 @@ import { tap } from "rxjs/operators";
 import { LOG_TYPE } from "./nestjs-winston-logger.constants";
 import { NestjsWinstonLoggerService } from "./nestjs-winston-logger.service";
 import { getCircularReplacer } from "./utils";
-import { composeContext, ExecutionContextType } from "./utils/composeContext";
+import { composeContext, ExecutionContextType, RequestContext } from "./utils";
 
+interface WinstonLoggingInterceptorOptions {
+  skip?: (options?: RequestContext) => boolean;
+}
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
-  constructor(private logger: NestjsWinstonLoggerService) {}
+  constructor(
+    private logger: NestjsWinstonLoggerService,
+    private options?: WinstonLoggingInterceptorOptions,
+  ) {}
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     const requestContext = composeContext(context);
@@ -23,6 +29,9 @@ export class LoggingInterceptor implements NestInterceptor {
     switch (contextType) {
       case ExecutionContextType.HTTP: {
         // do something that is only important in the context of regular HTTP requests (REST)
+        const shouldSkip = this.options?.skip?.(requestContext);
+        if (shouldSkip) break;
+
         const { request } = requestContext;
 
         this.logger.log(
@@ -39,6 +48,9 @@ export class LoggingInterceptor implements NestInterceptor {
         break;
       }
       case ExecutionContextType.GRAPHQL: {
+        const shouldSkip = this.options?.skip?.(requestContext);
+        if (shouldSkip) break;
+
         const { request, args } = requestContext;
 
         this.logger.log(
@@ -63,6 +75,9 @@ export class LoggingInterceptor implements NestInterceptor {
     return next.handle().pipe(
       tap({
         next: (value) => {
+          const shouldSkip = this.options?.skip?.(requestContext);
+          if (shouldSkip) return;
+
           this.logger.log(
             `${JSON.stringify({ Response: value }, getCircularReplacer())}`,
           );
